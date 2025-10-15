@@ -56,7 +56,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-32 lg:py-48 relative overflow-hidden gradient-bg-5 animated-gradient">
+    <section id="services" className="py-24 lg:py-32 relative overflow-hidden gradient-bg-5 animated-gradient">
       {/* Three.js Background */}
       <ThreeBackground variant="particles">
         {/* Dynamic overlays */}
@@ -92,43 +92,47 @@ const Services = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, idx) => (
             <div
-              key={idx}
-              className="group relative bg-background p-10 hover:shadow-2xl transition-all duration-500 animate-fade-in-up hover-lift transform-3d hover:scale-105 hover:rotate-1"
-              style={{ animationDelay: `${0.3 + idx * 0.1}s` }}
-            >
-              {/* Accent bar */}
-              <div
-                className="absolute top-0 left-0 w-2 h-full transition-all duration-500 group-hover:w-full opacity-10"
-                style={{ backgroundColor: `hsl(${service.color})` }}
-              ></div>
+  key={idx}
+  className="group relative rounded-3xl overflow-hidden bg-background/70 backdrop-blur-lg border border-white/10 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(255,255,255,0.1)] animate-fade-in-up"
+  style={{ animationDelay: `${0.3 + idx * 0.1}s` }}
+>
+  {/* Loader-style hover gradient bar */}
+  <div
+    className="absolute bottom-0 left-0 h-1 w-0 group-hover:w-full transition-all duration-700"
+    style={{
+      background: `linear-gradient(90deg, ${service.color}, ${service.color} 70%, rgba(255,255,255,0.1))`,
+    }}
+  ></div>
 
-              <div className="relative z-10">
-                <service.icon
-                  className="w-16 h-16 mb-6 transition-all duration-500"
-                  style={{ color: `hsl(${service.color})` }}
-                />
-                <h3 className="text-3xl font-heading font-black mb-4 text-foreground group-hover:text-[hsl(var(--color-orange))] transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-lg text-muted-foreground mb-6">{service.description}</p>
+  {/* Content centered */}
+  <div className="flex flex-col items-center justify-center text-center p-10 gap-6">
+    <service.icon
+      className="w-16 h-16 mb-4 transition-transform duration-500 group-hover:scale-110"
+      style={{ color: `hsl(${service.color})` }}
+    />
+    <h3 className="text-3xl font-heading font-black text-foreground transition-colors group-hover:text-[hsl(var(--color-orange))]">
+      {service.title}
+    </h3>
+    <p className="text-lg text-muted-foreground">{service.description}</p>
 
-                {/* Sub-services */}
-                <ul className="space-y-2">
-                  {service.subServices.map((sub, subIdx) => (
-                    <li
-                      key={subIdx}
-                      className="text-sm text-muted-foreground flex items-center gap-2"
-                    >
-                      <span
-                        className="w-1.5 h-1.5 rounded-full"
-                        style={{ backgroundColor: `hsl(${service.color})` }}
-                      ></span>
-                      {sub}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+    {/* Sub-services */}
+    <ul className="mt-4 space-y-2">
+      {service.subServices.map((sub, subIdx) => (
+        <li
+          key={subIdx}
+          className="text-sm text-muted-foreground flex items-center gap-2 justify-center"
+        >
+          <span
+            className="w-1.5 h-1.5 rounded-full"
+            style={{ backgroundColor: `hsl(${service.color})` }}
+          ></span>
+          {sub}
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
+
           ))}
         </div>
       </div>

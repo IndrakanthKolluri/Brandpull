@@ -4,7 +4,7 @@ import ThreeBackground from "./ThreeBackground";
 
 const About = () => {
   return (
-    <section id="about" className="py-32 lg:py-48 relative overflow-hidden gradient-bg-5 animated-gradient">
+    <section id="about" className="py-24 lg:py-32 relative overflow-hidden gradient-bg-5 animated-gradient">
       {/* Three.js Background */}
       <ThreeBackground variant="geometry">
         {/* Glass morphism overlay */}

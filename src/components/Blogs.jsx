@@ -13,7 +13,8 @@ const Blogs = () => {
       title: "The Complete Guide to Modern SEO",
       category: "SEO",
       excerpt: "Search is evolving. Learn the strategies that actually work in 2024.",
-      image: "https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?w=800&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&auto=format&fit=crop",
+
     },
     {
       title: "Building Brands That Matter",
@@ -24,7 +25,7 @@ const Blogs = () => {
   ];
 
   return (
-    <section id="blogs" className="py-32 lg:py-48 relative overflow-hidden gradient-bg-5 animated-gradient">
+    <section id="blogs" className="py-24 lg:py-32 relative overflow-hidden gradient-bg-5 animated-gradient">
       {/* Three.js Background */}
       <ThreeBackground variant="particles">
         {/* Dynamic overlays */}

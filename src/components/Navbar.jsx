@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
-import logo from "../assets/3 (1).png";
+import logo from "../assets/5.png";
 import { scrollToSection } from "./ScrollAnimations";
 
 const Navbar = () => {
@@ -37,12 +37,12 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="flex items-center justify-between h-24">
+        <div className="flex items-center justify-between h-20">
           <button
             onClick={() => scrollToSection("home")}
             className="hover:opacity-70 transition-opacity"
           >
-            <img src={logo} alt="BrandPull Logo" className="h-12 w-auto" />
+            <img src={logo} alt="BrandPull Logo" className="h-20 w-auto" />
           </button>
 
           {/* Desktop Navigation */}

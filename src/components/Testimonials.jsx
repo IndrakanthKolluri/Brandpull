@@ -48,7 +48,7 @@ const Testimonials = () => {
   return (
     <section
       id="testimonials"
-      className="py-32 lg:py-48 relative overflow-hidden gradient-bg-5 animated-gradient"
+      className="py-24 lg:py-32 relative overflow-hidden gradient-bg-5 animated-gradient"
     >
       {/* Three.js Background */}
       <ThreeBackground variant="mixed">
