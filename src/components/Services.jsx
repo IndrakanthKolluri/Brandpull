@@ -7,6 +7,8 @@ import {
   Building,
 } from "lucide-react";
 
+import ThreeBackground from "./ThreeBackground";
+
 const Services = () => {
   const services = [
     {
@@ -54,8 +56,21 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-32 lg:py-48 bg-muted/30">
-      <div className="container mx-auto px-6 lg:px-12">
+    <section id="services" className="py-32 lg:py-48 relative overflow-hidden gradient-bg-5 animated-gradient">
+      {/* Three.js Background */}
+      <ThreeBackground variant="particles">
+        {/* Dynamic overlays */}
+        <div className="absolute inset-0 bg-gradient-to-r from-green-500/10 via-blue-500/10 to-purple-500/10"></div>
+
+        {/* Floating elements */}
+        <div className="absolute top-1/4 right-1/4 w-12 h-12 bg-orange-400/30 rounded-full floating-element animate-float-3d"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-8 h-8 bg-blue-400/30 rounded-lg floating-element animate-float-3d" style={{ animationDelay: "2s" }}></div>
+        <div className="absolute top-1/2 left-1/3 w-10 h-10 bg-green-500/30 rounded-full floating-element animate-float-3d" style={{ animationDelay: "1s" }}></div>
+        <div className="absolute bottom-1/2 right-1/3 w-14 h-14 bg-purple-500/30 rounded-lg floating-element animate-float-3d" style={{ animationDelay: "3s" }}></div>
+        <div className="absolute top-1/3 right-1/2 w-6 h-6 bg-pink-500/30 rounded-full floating-element animate-float-3d" style={{ animationDelay: "4s" }}></div>
+      </ThreeBackground>
+
+      <div className="container relative z-10 mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="mb-24">
           <h2
@@ -78,7 +93,7 @@ const Services = () => {
           {services.map((service, idx) => (
             <div
               key={idx}
-              className="group relative bg-background p-10 hover:shadow-2xl transition-all duration-500 animate-fade-in-up hover:-translate-y-2"
+              className="group relative bg-background p-10 hover:shadow-2xl transition-all duration-500 animate-fade-in-up hover-lift transform-3d hover:scale-105 hover:rotate-1"
               style={{ animationDelay: `${0.3 + idx * 0.1}s` }}
             >
               {/* Accent bar */}

@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
+import logo from "../assets/3 (1).png";
+import { scrollToSection } from "./ScrollAnimations";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,18 +32,17 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? "bg-background shadow-lg border-b border-border" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 gradient-bg-5 animated-gradient ${
+        isScrolled ? "bg-background/80 backdrop-blur-md shadow-lg border-b border-border" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-24">
           <button
             onClick={() => scrollToSection("home")}
-            className="text-3xl lg:text-4xl font-heading font-black tracking-tight hover:opacity-70 transition-opacity"
+            className="hover:opacity-70 transition-opacity"
           >
-            <span className="text-[hsl(var(--color-blue))]">Brand</span>
-            <span className="text-[hsl(var(--color-orange))]">Pull</span>
+            <img src={logo} alt="BrandPull Logo" className="h-12 w-auto" />
           </button>
 
           {/* Desktop Navigation */}

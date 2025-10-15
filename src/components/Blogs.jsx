@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import ThreeBackground from "./ThreeBackground";
 
 const Blogs = () => {
   const blogs = [
@@ -23,8 +24,22 @@ const Blogs = () => {
   ];
 
   return (
-    <section id="blogs" className="py-32 lg:py-48 bg-background">
-      <div className="container mx-auto px-6 lg:px-12">
+    <section id="blogs" className="py-32 lg:py-48 relative overflow-hidden gradient-bg-5 animated-gradient">
+      {/* Three.js Background */}
+      <ThreeBackground variant="particles">
+        {/* Dynamic overlays */}
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-orange-500/10"></div>
+
+        {/* Floating geometric shapes */}
+        <div className="absolute top-1/3 right-1/3 w-14 h-14 bg-green-400/20 rounded-full floating-element animate-float-3d"></div>
+        <div className="absolute bottom-1/3 left-1/3 w-10 h-10 bg-blue-400/20 transform rotate-45 floating-element animate-float-3d" style={{ animationDelay: "3.5s" }}></div>
+        <div className="absolute top-1/4 right-1/4 w-12 h-12 bg-purple-500/30 rounded-full floating-element animate-float-3d" style={{ animationDelay: "1s" }}></div>
+        <div className="absolute top-1/2 left-1/3 w-8 h-8 bg-orange-500/30 rounded-lg floating-element animate-float-3d" style={{ animationDelay: "2s" }}></div>
+        <div className="absolute bottom-1/2 right-1/3 w-14 h-14 bg-pink-500/30 rounded-full floating-element animate-float-3d" style={{ animationDelay: "4s" }}></div>
+        <div className="absolute top-1/3 right-1/2 w-6 h-6 bg-teal-500/30 rounded-lg floating-element animate-float-3d" style={{ animationDelay: "5s" }}></div>
+      </ThreeBackground>
+
+      <div className="container relative z-10 mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <div className="mb-20">
           <h2 className="text-5xl md:text-7xl lg:text-8xl font-heading font-black leading-none mb-6 animate-fade-in-up" style={{ animationDelay: "0s" }}>
@@ -41,7 +56,7 @@ const Blogs = () => {
           {blogs.map((blog, index) => (
             <article
               key={index}
-              className="group cursor-pointer animate-fade-in-up"
+              className="group cursor-pointer animate-fade-in-up hover-lift transform-3d animate-bounce-gentle"
               style={{ animationDelay: `${0.3 + index * 0.2}s` }}
             >
               <div className="relative h-80 overflow-hidden mb-6 rounded-lg">

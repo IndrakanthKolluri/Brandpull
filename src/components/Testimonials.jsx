@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ThreeBackground from "./ThreeBackground";
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -47,13 +48,23 @@ const Testimonials = () => {
   return (
     <section
       id="testimonials"
-      className="py-32 lg:py-48 bg-background relative overflow-hidden"
+      className="py-32 lg:py-48 relative overflow-hidden gradient-bg-5 animated-gradient"
     >
-      {/* Background blobs */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-[hsl(var(--color-purple))] rounded-full opacity-5 blur-3xl"></div>
-      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-[hsl(var(--color-orange))] rounded-full opacity-5 blur-3xl"></div>
+      {/* Three.js Background */}
+      <ThreeBackground variant="mixed">
+        {/* Glass morphism elements */}
+        <div className="absolute inset-0 bg-black/5 backdrop-blur-sm"></div>
 
-      <div className="container relative mx-auto px-6 lg:px-12">
+        {/* Floating orbs */}
+        <div className="absolute top-1/4 right-1/4 w-16 h-16 bg-purple-400/20 rounded-full floating-element animate-float-3d"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-20 h-20 bg-pink-400/20 rounded-lg floating-element animate-float-3d" style={{ animationDelay: "2.5s" }}></div>
+        <div className="absolute top-1/2 left-1/3 w-12 h-12 bg-blue-500/30 rounded-full floating-element animate-float-3d" style={{ animationDelay: "1s" }}></div>
+        <div className="absolute bottom-1/2 right-1/3 w-18 h-18 bg-green-500/30 rounded-lg floating-element animate-float-3d" style={{ animationDelay: "3s" }}></div>
+        <div className="absolute top-1/3 right-1/2 w-8 h-8 bg-orange-500/30 rounded-full floating-element animate-float-3d" style={{ animationDelay: "4s" }}></div>
+        <div className="absolute bottom-1/3 left-1/2 w-10 h-10 bg-teal-500/30 rounded-lg floating-element animate-float-3d" style={{ animationDelay: "5s" }}></div>
+      </ThreeBackground>
+
+      <div className="container relative z-10 mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="mb-20 animate-fade-in-up">
           <h2 className="text-5xl md:text-7xl lg:text-8xl font-heading font-black leading-none mb-8">

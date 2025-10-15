@@ -1,5 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import ThreeBackground from "./ThreeBackground";
 
 const Hero = () => {
   const scrollToSection = (id) => {
@@ -12,25 +14,36 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-24"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 gradient-bg-5 animated-gradient"
     >
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 right-20 w-72 h-72 bg-[hsl(var(--color-blue))] rounded-full opacity-10 blur-3xl animate-float"></div>
-        <div
-          className="absolute bottom-20 left-20 w-96 h-96 bg-[hsl(var(--color-orange))] rounded-full opacity-10 blur-3xl animate-float"
-          style={{ animationDelay: "1s" }}
-        ></div>
-        <div
-          className="absolute top-1/2 left-1/2 w-80 h-80 bg-[hsl(var(--color-purple))] rounded-full opacity-10 blur-3xl animate-float"
-          style={{ animationDelay: "2s" }}
-        ></div>
-      </div>
+      {/* Three.js 3D Background */}
+      <ThreeBackground variant="mixed">
+        {/* Dynamic gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20"></div>
 
-      {/* Content */}
-      <div className="container relative z-10 mx-auto px-6 lg:px-12 py-20">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center animate-fade-in-up mb-12">
+        {/* Floating geometric shapes */}
+        <div className="absolute top-20 right-20 w-32 h-32 floating-element">
+          <div className="w-full h-full bg-white/10 backdrop-blur-sm rounded-lg transform rotate-45 animate-float-3d"></div>
+        </div>
+        <div className="absolute bottom-20 left-20 w-24 h-24 floating-element" style={{ animationDelay: "2s" }}>
+          <div className="w-full h-full bg-orange-400/20 backdrop-blur-sm rounded-full animate-float-3d"></div>
+        </div>
+        <div className="absolute top-1/2 left-1/4 w-16 h-16 floating-element" style={{ animationDelay: "4s" }}>
+          <div className="w-full h-full bg-purple-400/20 backdrop-blur-sm transform rotate-12 animate-float-3d"></div>
+        </div>
+
+        {/* Additional Floating particles */}
+        <div className="absolute top-16 right-16 w-12 h-12 bg-red-500/30 rounded-full floating-element animate-float-3d" style={{ animationDelay: "1s" }}></div>
+        <div className="absolute bottom-16 left-16 w-10 h-10 bg-yellow-500/30 rounded-lg floating-element animate-float-3d" style={{ animationDelay: "3s" }}></div>
+        <div className="absolute top-1/3 left-1/3 w-8 h-8 bg-cyan-500/30 rounded-full floating-element animate-float-3d" style={{ animationDelay: "5s" }}></div>
+        <div className="absolute bottom-1/3 right-1/3 w-14 h-14 bg-teal-500/30 rounded-lg floating-element animate-float-3d" style={{ animationDelay: "6s" }}></div>
+      </ThreeBackground>
+
+      {/* Content: full-viewport overlay so content can be centered relative to the viewport */}
+      <div className="absolute left-0 right-0 w-screen z-10 flex items-center justify-center pointer-events-none">
+        <div className="container relative z-10 mx-auto px-6 lg:px-12 flex items-center justify-center h-full pointer-events-auto">
+          <div className="max-w-6xl mx-auto text-center w-full">
+          <div className="animate-fade-in-up mb-12">
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-heading font-black leading-none mb-8">
               <span className="block">We don't just</span>
               <span className="block">
@@ -65,7 +78,7 @@ const Hero = () => {
               size="lg"
               variant="outline"
               onClick={() => scrollToSection("contact")}
-              className="border-2 border-foreground rounded-full text-lg px-10 py-7 font-bold hover:bg-foreground hover:text-background"
+              className="border-2 border-foreground rounded-full text-lg px-10 py-7 font-bold hover:bg-foreground hover:text-background animate-pulse-glow"
             >
               Start a Project
             </Button>
@@ -107,6 +120,7 @@ const Hero = () => {
                 </div>
               ))}
             </div>
+          </div>
           </div>
         </div>
       </div>
